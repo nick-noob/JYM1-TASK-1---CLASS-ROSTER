@@ -39,12 +39,11 @@ public:
 
 	// Time for some construction!
 
+	Student();
 	Student(
 		string studentID, string firstName, string lastName,
 		string studentEmail, int age, int daysToComplete[],
 		degreeProgramEnum degreeProgram);
-	
-	Student();
 	~Student();
 
 	virtual void print();
