@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <degree.h>
+#include "degree.h"
 #include <vector>
 using namespace std;
 
