@@ -1,16 +1,21 @@
 #pragma once
 #include <string>
-#include "degree.h"
 #include <vector>
+#include "degree.h"
+
 using namespace std;
 
 class Student {
+
+public:
+	
+	const static int daysArraySize = 3;
 
 private:
 
 	string studentID, firstName, lastName, studentEmail;
 	int age;
-	int daysToComplete[3];
+	int daysToComplete[daysArraySize];
 	degreeProgramEnum degreeProgram;
 	
 public:
@@ -34,7 +39,7 @@ public:
 	void setStudentEmail(string studentEmail);
 	void setAge(int age);
 	void setDegreeProgram(degreeProgramEnum degreeProgram);
-	void setDaysToComplete(int daysToComplete);
+	void setDaysToComplete(int daysToComplete[]);
 
 
 	// Time for some construction!
@@ -46,6 +51,8 @@ public:
 		degreeProgramEnum degreeProgram);
 	~Student();
 
-	virtual void print();
+	static void printHeader(); // displays a header for the data to follow
+
+	void print(); // displays 'this' student's data
 
 };
