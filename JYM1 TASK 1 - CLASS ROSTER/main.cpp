@@ -21,5 +21,13 @@ int main() {
 		"A5, Nicholas, Gusto, Ngusto@wgu.edu, 31, 15, 25, 35, SOFTWARE"
 	};
 
+	Roster classRoster;
+
+	classRoster.extractStudentData();
+	classRoster.printAll();
+	classRoster.printInvalidEmails();
+
+
+
 };
 

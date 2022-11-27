@@ -13,6 +13,9 @@ const string studentData[] =
 	"A5, Nicholas, Gusto, Ngusto@wgu.edu, 31, 15, 25, 35, SOFTWARE"
 };
 
+const int rosterMax = 5;
+const int studentInfoMax = 9;
+
 class Roster {
 
 public: 
@@ -25,6 +28,7 @@ public:
 			degreeProgramEnum degreeProgram);
 
 	void remove(string studentID);
+	void extractStudentData();
 	void printAll();
 	void printAverageDaysInCourse(string studentID);
 	void printInvalidEmails();
@@ -32,5 +36,8 @@ public:
 
 	Roster();
 	~Roster();
+
+private:
+	Student* classRosterArray[rosterMax];
 };
 
