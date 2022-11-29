@@ -6,5 +6,5 @@ C.  Define an enumerated data type DegreeProgram for the degree programs contain
 Note: This information should be included in the degree.h file.
 */
 
-enum DegreeProgram {SECURITY, NETWORK, SOFTWARE};
+enum DegreeProgram {SECURITY, NETWORK, SOFTWARE, UNDECIDED};
 
