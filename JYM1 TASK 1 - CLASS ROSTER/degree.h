@@ -6,5 +6,6 @@ C.  Define an enumerated data type DegreeProgram for the degree programs contain
 Note: This information should be included in the degree.h file.
 */
 
-enum DegreeProgram {SECURITY, NETWORK, SOFTWARE, UNDECIDED};
+enum DegreeProgram {UNDECIDED, SECURITY, NETWORK, SOFTWARE};
 
+static const std::string degreeTypeStrings[] = { "UNDECIDED", "SECURITY", "NETWORK", "SOFTWARE" };
