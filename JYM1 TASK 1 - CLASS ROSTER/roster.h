@@ -19,7 +19,7 @@ class Roster {
 private:
 
 	int lastIndex = -1;
-    const static int rosterMax = 5;
+	const static int rosterMax = 5;
 	Student* classRosterArray[rosterMax];
 
 public: 

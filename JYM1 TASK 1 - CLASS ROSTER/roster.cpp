@@ -124,12 +124,32 @@ void Roster::removeStudentByID(string sID)
 			if (i < rosterMax - 1)
 			{
 				Student* temp = classRosterArray[i];
-				classRosterArray[i] = classRosterArray[rosterMax - 1];
-				classRosterArray[rosterMax - 1] = temp;
+				classRosterArray[i] = classRosterArray[rosterMax - 1]; // Not copying any objects here - just assigning one pointer to another
+				classRosterArray[rosterMax - 1] = temp; // The books aren't moving - only the pointers are - the books have switched places
 			}
-			Roster::lastIndex--; // Hides the last student
+			Roster::lastIndex--; // Hides the last student because you're no longer able to get to it by decrementing lastIndex - you can only see those that are specified by lastIndex
 		}
 	}
+	if (success)
+	{
+		cout << sID << " removed from repository." << endl << endl;
+		this->printAll(); // The removed student(s) should NOT be displayed
+	}
+	else cout << sID << " not found." << endl << endl;
+}
+
+Roster::~Roster() // Gets rid of objects that are dynamically allocated - i.e. the Students
+{
+	cout << "*Destructor has entered the chat*" << endl << endl; // What you create, you must destroy. Clean up after yourself
+	for (int i = 0; i < rosterMax; i++)
+	{
+		cout << "Destroying Student: " << i + 1 << endl;
+		cout << "RIP" << endl;
+		delete classRosterArray[i];
+		classRosterArray[i] = nullptr; // This caps off the hole and removes the address it had before
+	}
+
+
 }
 
 
