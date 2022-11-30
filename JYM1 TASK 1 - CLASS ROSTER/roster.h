@@ -14,8 +14,8 @@ const string studentData[] =
 };
 
 
-class Roster {
-
+class Roster 
+{
 public:
 
 	int lastIndex = -1;
@@ -36,9 +36,6 @@ public:
 
 	void printAverageDaysInCourse(string studentID);
 
-	void removeStudentByID(string studentID);
-
-	~Roster();
-
+	bool removeStudentByID(string studentID);
 };
 
