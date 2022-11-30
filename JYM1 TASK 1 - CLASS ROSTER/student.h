@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
-#include <vector>
+#include <iostream>
+#include <iomanip>
 #include "degree.h"
 
 using namespace std;
@@ -16,43 +17,38 @@ private:
 	string studentID, firstName, lastName, studentEmail;
 	int age;
 	int daysToComplete[daysArraySize];
-	degreeProgramEnum degreeProgram;
+	DegreeProgram degreeProgram;
 	
 public:
 
-	// Let's access some functions!
+	Student(); // Sets to default values
+	Student(string studentID, string firstName, string lastName, string studentEmail, int age, int daysToComplete[], DegreeProgram degreeProgram); //Full constructor
+	~Student(); // Destructor
+
+	// Getters
 
 	string getStudentID() const;
 	string getFirstName() const;
 	string getLastName() const;
 	string getStudentEmail() const;
 	int getAge() const;
-	degreeProgramEnum getDegreeProgram() const;
-	int getDaysToComplete() const;
-
+	int* getDaysToComplete();
+	DegreeProgram getDegreeProgram() const;
 	
-	// Let's mutate some functions!
+
+	// Setters
 
 	void setStudentID(string studentID);
 	void setFirstName(string firstName);
 	void setLastName(string lastName);
 	void setStudentEmail(string studentEmail);
 	void setAge(int age);
-	void setDegreeProgram(degreeProgramEnum degreeProgram);
 	void setDaysToComplete(int daysToComplete[]);
+	void setDegreeProgram(DegreeProgram degreeProgram);
+	
 
+	static void printHeader(); // Displays a header for the data to follow
 
-	// Time for some construction!
-
-	Student();
-	Student(
-		string studentID, string firstName, string lastName,
-		string studentEmail, int age, int daysToComplete[],
-		degreeProgramEnum degreeProgram);
-	~Student();
-
-	static void printHeader(); // displays a header for the data to follow
-
-	void print(); // displays 'this' student's data
+	void print(); // Displays 'this' student's data
 
 };

@@ -12,10 +12,10 @@ Student::Student()
 	this->studentEmail = "";
 	this->age = "";
 	for (int i = 0; i < daysArraySize; i++) this->daysToComplete[i] = 0;
-	this->degreeProgramEnum = degreeProgram::UNDECIDED;
+	this->DegreeProgram = degreeProgram::UNDECIDED;
 }
 
-Student::Student(string studentID, string firstName, string lastName, string studentEmail, int age, daysToComplete[], degreeProgramEnum degreeProgram)
+Student::Student(string studentID, string firstName, string lastName, string studentEmail, int age, daysToComplete[], DegreeProgram degreeProgram)
 {
 	this->studentID = studentID;
 	this->firstName = firstName;
@@ -23,7 +23,7 @@ Student::Student(string studentID, string firstName, string lastName, string stu
 	this->studentEmail = studentEmail;
 	this->age = age;
 	for (int i = 0; i < daysArraySize; i++) this->daysToComplete[i] = daysToComplete[i];
-	this->degreeProgramEnum = degreeProgram;
+	this->DegreeProgram = degreeProgram;
 }
 
 Student::~Student() {}
@@ -34,7 +34,7 @@ string Student::getLastName() { return this->lastName; }
 string Student::getStudentEmail() { return this->studentEmail; }
 int Student::getAge() { return this->age; }
 int Student::getDaysToComplete() { return this->daysToComplete; }
-degreeProgramEnum Student::getDegreeProgramEnum() { return this->degreeProgram; }
+DegreeProgram Student::getDegreeProgram() { return this->degreeProgram; }
 
 void Student::setStudentID(string studentID) { this->studentID = studentID; }
 void Student::setFirstName(string firstName) { this->firstName = firstName; }
@@ -45,7 +45,7 @@ void Student::setDaysToComplete(int daysToComplete[])
 {
 	for (int i = 0; i < daysArraySize; i++) this->daysToComplete[i] = daysToComplete[i];
 }
-void Student::setDegreeProgramEnum(degreeProgramEnum degreeProgram) { this->degreeProgram = degreeProgram; }
+void Student::setDegreeProgram(DegreeProgram degreeProgram) { this->DegreeProgram = degreeProgram; }
 
 void Student::printHeader()
 {
@@ -54,6 +54,14 @@ void Student::printHeader()
 
 void Student::print()
 {
-
+	cout << this->getStudentID() << '\t';
+	cout << this->getFirstName() << '\t';
+	cout << this->getLastName() << '\t';
+	cout << this->getStudentEmail() << '\t';
+	cout << this->getAge() << '\t';
+	cout << this->getDaysToComplete()[0] << ',';
+	cout << this->getDaysToComplete()[1] << ',';
+	cout << this->getDaysToComplete()[2] << '\t';
+	cout << degreeTypeStrings[this->getDegreeProgram()] << '\n';
 }
 
