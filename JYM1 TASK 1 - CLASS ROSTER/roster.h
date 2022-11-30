@@ -16,7 +16,7 @@ const string studentData[] =
 
 class Roster {
 
-private:
+public:
 
 	int lastIndex = -1;
 	const static int rosterMax = 5;

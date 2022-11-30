@@ -27,13 +27,13 @@ public:
 
 	// Getters
 
-	string getStudentID() const;
-	string getFirstName() const;
-	string getLastName() const;
-	string getStudentEmail() const;
-	int getAge() const;
+	string getStudentID();
+	string getFirstName();
+	string getLastName();
+	string getStudentEmail();
+	int getAge();
 	int* getDaysToComplete();
-	DegreeProgram getDegreeProgram() const;
+	DegreeProgram getDegreeProgram();
 	
 
 	// Setters
