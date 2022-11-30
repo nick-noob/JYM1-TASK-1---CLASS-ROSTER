@@ -12,7 +12,7 @@ Student::Student()
 	this->studentEmail = "";
 	this->age = "";
 	for (int i = 0; i < daysArraySize; i++) this->daysToComplete[i] = 0;
-	this->DegreeProgram = degreeProgram::UNDECIDED;
+	this->DegreeProgram = degreeProgram;
 }
 
 Student::Student(string studentID, string firstName, string lastName, string studentEmail, int age, daysToComplete[], DegreeProgram degreeProgram)

@@ -1,6 +1,6 @@
 #include <string>
 #include <iostream>
-#include <roster.h>
+#include "roster.h"
 
 using namespace std;
 
@@ -22,13 +22,36 @@ int main() {
 	};
 
 	const int rosterMax = 5;
-	Roster classRoster;
+	Roster classRoster; // Not calling or defining a constructor - everything set to 0 provided by the compiler
 
-	classRoster.extractStudentData();
+	for (int i = 0; i < rosterMax; i++) classRoster.parse(studentData[i]);
+	cout << "Displaying all Students: " << endl;
 	classRoster.printAll();
+	cout << endl;
+
+	cout << "Displaying all SOFTWARE Students: " << degreeTypeStrings[i] << endl;
+	classRoster.printByDegreeType((SOFTWARE);
+
+	cout << "Displaying Students with invalid Emails: " << endl;
 	classRoster.printInvalidEmails();
+	cout << endl;
 
+	cout << "Displaying Average Days to Complete Course: " << endl;
+	for (int i = 0; i < rosterMax; i++)
+	{
+		classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i]->getStudentID());
+	}
+	cout << endl;
 
+	cout << "Removing Student with ID A3: " << endl;
+	classRoster.removeStudentByID('A3'); 
+	cout << endl;
 
+	cout << "Removing Student with ID A3: " << endl;
+	classRoster.removeStudentByID('A3');
+	cout << endl;
+
+	system("Pause"); // This holds the window and allows us to see the Destructor announcement when it's run
+	return 0;
 };
 
