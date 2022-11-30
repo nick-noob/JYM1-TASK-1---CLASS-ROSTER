@@ -21,6 +21,7 @@ int main() {
 		"A5,Nicholas,Gusto,Ngusto@wgu.edu,31,15,25,35,SOFTWARE"
 	};
 
+	const int rosterMax = 5;
 	Roster classRoster;
 
 	classRoster.extractStudentData();
