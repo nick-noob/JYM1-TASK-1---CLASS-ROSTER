@@ -103,14 +103,16 @@ void Roster::printInvalidEmails()
 	if (!any) cout << "No invalid emails." << endl;
 }
 
-void Roster::printAverageDaysInCourse()
+void Roster::printAverageDaysInCourse(string sID)
 {
 	for (int i = 0; i <= Roster::lastIndex; i++)
 	{
-		cout << classRosterArray[i]->getStudentID() << ": ";
-		cout << (classRosterArray[i]->getDaysToComplete()[0] + classRosterArray[i]->getDaysToComplete()[1] + classRosterArray[i]->getDaysToComplete()[2]) / 3.0 << endl;
+		if (classRosterArray[i]->getStudentID()==sID)
+		{ 
+			cout << sID << ":";
+			cout << (classRosterArray[i]->getDaysToComplete()[0] + classRosterArray[i]->getDaysToComplete()[1] + classRosterArray[i]->getDaysToComplete()[2]) / 3.0 << endl;
+		}
 	}
-	cout << endl;
 }
 
 void Roster::removeStudentByID(string sID)
