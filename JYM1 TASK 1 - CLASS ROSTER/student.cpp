@@ -2,7 +2,10 @@
 #include <iostream>
 #include "student.h"
 
-using namespace std;
+//using namespace std;
+using std::string;
+using std::cout;
+using std::endl;
 
 Student::Student()
 {
@@ -10,12 +13,12 @@ Student::Student()
 	this->firstName = "";
 	this->lastName = "";
 	this->studentEmail = "";
-	this->age = "";
+	this->age = 0;
 	for (int i = 0; i < daysArraySize; i++) this->daysToComplete[i] = 0;
-	this->DegreeProgram = degreeProgram;
+	this->degreeProgram = DegreeProgram::SOFTWARE;
 }
 
-Student::Student(string studentID, string firstName, string lastName, string studentEmail, int age, daysToComplete[], DegreeProgram degreeProgram)
+Student::Student(string studentID, string firstName, string lastName, string studentEmail, int age, int daysToComplete[], DegreeProgram degreeProgram)
 {
 	this->studentID = studentID;
 	this->firstName = firstName;
@@ -23,7 +26,7 @@ Student::Student(string studentID, string firstName, string lastName, string stu
 	this->studentEmail = studentEmail;
 	this->age = age;
 	for (int i = 0; i < daysArraySize; i++) this->daysToComplete[i] = daysToComplete[i];
-	this->DegreeProgram = degreeProgram;
+	this->degreeProgram = degreeProgram;
 }
 
 Student::~Student() {}
@@ -33,7 +36,7 @@ string Student::getFirstName() { return this->firstName; }
 string Student::getLastName() { return this->lastName; }
 string Student::getStudentEmail() { return this->studentEmail; }
 int Student::getAge() { return this->age; }
-int Student::getDaysToComplete() { return this->daysToComplete; }
+int* Student::getDaysToComplete() { return this->daysToComplete; }
 DegreeProgram Student::getDegreeProgram() { return this->degreeProgram; }
 
 void Student::setStudentID(string studentID) { this->studentID = studentID; }
@@ -45,11 +48,11 @@ void Student::setDaysToComplete(int daysToComplete[])
 {
 	for (int i = 0; i < daysArraySize; i++) this->daysToComplete[i] = daysToComplete[i];
 }
-void Student::setDegreeProgram(DegreeProgram degreeProgram) { this->DegreeProgram = degreeProgram; }
+void Student::setDegreeProgram(DegreeProgram degreeProgram) { this->degreeProgram = degreeProgram; }
 
 void Student::printHeader()
 {
-	cout << "Output format: StudentID|FirstName|LastName|Age|DaysToCompleteClasses|Degree\n";
+	cout << "StudentID | FirstName | LastName | Email | Age | DaysToCompleteClasses | Degree\n" << endl;
 }
 
 void Student::print()

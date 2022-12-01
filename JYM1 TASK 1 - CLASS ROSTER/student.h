@@ -4,9 +4,14 @@
 #include <iomanip>
 #include "degree.h"
 
-using namespace std;
+// using namespace std;
 
-class Student {
+using std::string;
+using std::cout;
+using std::endl;
+
+class Student 
+{
 
 public:
 	
@@ -14,7 +19,10 @@ public:
 
 private:
 
-	string studentID, firstName, lastName, studentEmail;
+	string studentID;
+	string firstName;
+	string lastName; 
+	string studentEmail;
 	int age;
 	int daysToComplete[daysArraySize];
 	DegreeProgram degreeProgram;

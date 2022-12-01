@@ -2,14 +2,20 @@
 #include <iostream>
 #include "roster.h"
 
-using namespace std;
+// using namespace std;
+using std::string;
+using std::cout;
+using std::endl;
 
 int main() {
 
+	cout << endl;
 	cout << "Course Title: C867 Scripting & Programming - Applications" << endl;
 	cout << "Language:     C++" << endl;
 	cout << "Student ID:   010589169" << endl;
 	cout << "Name:         Nicholas Gusto" << endl;
+	cout << "_____________________________________________________________________________________________" << endl;
+	cout << endl;
 
 	const string studentData[] =
 
@@ -25,34 +31,62 @@ int main() {
 	Roster classRoster; // Not calling or defining a constructor - everything set to 0 provided by the compiler
 
 	for (int i = 0; i < rosterMax; i++) classRoster.parse(studentData[i]);
-	cout << "Displaying all Students: " << endl;
+	cout << endl;
+	cout << "DISPLAY ALL STUDENTS: " << endl;
+	cout << endl;
 	classRoster.printAll();
 	cout << endl;
-
-	cout << "Displaying all SOFTWARE Students: " << degreeTypeStrings[i] << endl;
-	classRoster.printByDegreeType((SOFTWARE);
-
-	cout << "Displaying Students with invalid Emails: " << endl;
-	classRoster.printInvalidEmails();
+	cout << "_____________________________________________________________________________________________" << endl;
 	cout << endl;
 
-	cout << "Displaying Average Days to Complete Course: " << endl;
+	cout << endl;
+	cout << "DISPLAY ALL SOFTWARE STUDENTS: " << endl;
+	cout << endl;
+	classRoster.printByDegreeType(SOFTWARE);
+	cout << "_____________________________________________________________________________________________" << endl;
+	cout << endl;
+
+	cout << endl;
+	cout << "DISPLAY ALL STUDENTS WITH INVALID EMAIL: " << endl;
+	cout << endl;
+	classRoster.printInvalidEmails();
+	cout << endl;
+	cout << "_____________________________________________________________________________________________" << endl;
+	cout << endl;
+
+	cout << endl;
+	cout << "DISPLAY AVERAGE DAYS TO COMPLETE COURSE: " << endl;
+	cout << endl;
 	for (int i = 0; i < rosterMax; i++)
 	{
 		classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i]->getStudentID());
 	}
 	cout << endl;
+	cout << "_____________________________________________________________________________________________" << endl;
+	cout << endl;
 
-	cout << "Removing Student with ID A3: " << endl;
-	if (classRoster.removeStudentByID('A3')) cout << "Student with ID of A3 removed" << endl;
-	else cout << "Student A3 not found" << endl;
+	cout << endl;
+	cout << "Removing Student with ID A3" << endl;
+	cout << endl;
+	cout << endl;
+	
 	classRoster.printAll();
-
-	cout << "Removing Student with ID A3: " << endl;
-	if (classRoster.removeStudentByID('A3')) cout << "Student with ID of A3 removed" << endl;
+	if (classRoster.removeStudentByID("A3")) cout << "Student with ID of A3 removed" << endl;
 	else cout << "Student A3 not found" << endl;
+	cout << endl;
+	cout << "_____________________________________________________________________________________________" << endl;
+	cout << endl;
+	
 
-	system("Pause"); // This holds the window and allows us to see the Destructor announcement when it's run
+	/*cout << endl;
+	cout << "CLASS ROSTER WITHOUT A3:" << endl;
+	cout << endl;
+	cout << "Removing Student with ID A3" << endl;
+	cout << endl;
+	if (classRoster.removeStudentByID("A3")) cout << "Student with ID of A3 removed" << endl;
+	else cout << "Student A3 not found" << endl;*/
+
+	// system("Pause"); // This holds the window and allows us to see the Destructor announcement when it's run
 	return 0;
 };
 

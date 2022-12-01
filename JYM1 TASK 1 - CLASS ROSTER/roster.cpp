@@ -6,8 +6,10 @@
 #include "roster.h"
 #include "student.h"
 
-using namespace std;
-
+// using namespace std;
+using std::string;
+using std::cout;
+using std::endl;
 
 void Roster::parse(string studentData)
 {
@@ -54,14 +56,14 @@ void Roster::parse(string studentData)
 	add(sID, sFirst, sLast, sEmail, sAge, sComplete1, sComplete2, sComplete3, sDegree);
 }
 
-void Roster::add(string sID, string sFirst, string sLast, string sEmail, int sAge, int sComplete1, int sComplete2, int sComplete3, DegreeProgram sDegree)
+void Roster::add(string studentID, string firstName, string lastName, string studentEmail, int age, int sComplete1, int sComplete2, int sComplete3, DegreeProgram sDegree)
 {
 	int sArray[3] = { sComplete1, sComplete2, sComplete3 };
 
-	classRosterArray[++lastIndex] = new Student(sID, sFirst, sLast, sEmail, sAge, sArray, sDegree);
+	classRosterArray[++lastIndex] = new Student(studentID, firstName, lastName, studentEmail, age, sArray, sDegree);
 }
 
-void Roster::printAll();
+void Roster::printAll()
 {
 	Student::printHeader();
 	for (int i = 0; i <= Roster::lastIndex; i++)
@@ -71,8 +73,8 @@ void Roster::printAll();
 		cout << classRosterArray[i]->getLastName(); cout << '\t';
 		cout << classRosterArray[i]->getStudentEmail(); cout << '\t';
 		cout << classRosterArray[i]->getAge(); cout << '\t';
-		cout << classRosterArray[i]->getDaysToComplete()[0]; cout << '\t';
-		cout << classRosterArray[i]->getDaysToComplete()[1]; cout << '\t';
+		cout << classRosterArray[i]->getDaysToComplete()[0]; cout << ", ";
+		cout << classRosterArray[i]->getDaysToComplete()[1]; cout << ", ";
 		cout << classRosterArray[i]->getDaysToComplete()[2]; cout << '\t';
 		cout << degreeTypeStrings[classRosterArray[i]->getDegreeProgram()] << endl;
 	}
@@ -82,7 +84,7 @@ void Roster::printByDegreeType(DegreeProgram sDegree)
 {
 	Student::printHeader();
 	for (int i = 0; i <= Roster::lastIndex; i++) {
-		if (Roster:classRosterArray[i]->getDegreeProgram() == sDegree) classRosterArray[i]->print();
+		if (Roster::classRosterArray[i]->getDegreeProgram() == sDegree) classRosterArray[i]->print();
 	}
 	cout << endl;
 }
@@ -94,10 +96,10 @@ void Roster::printInvalidEmails()
 	for (int i = 0; i <= Roster::lastIndex; i++)
 	{
 		string sEmail = (classRosterArray[i]->getStudentEmail());
-		if (sEmail.find('@') == string::npos) || (sEmail.find('.') == string::npos) || (sEmail.find(' ') != string::npos))
+		if (sEmail.find('@') == string::npos || sEmail.find('.') == string::npos || sEmail.find(' ') != string::npos)
 		{
 			any = true;
-			cout << sEmail << ": " << classRosterArray[i]->getsFirst() << classRosterArray[i]->getsLast() << endl;
+			cout << sEmail << ":    " << classRosterArray[i]->getFirstName() << " " << classRosterArray[i]->getLastName() << endl;
 		}
 	}
 	if (!any) cout << "No invalid emails." << endl;
@@ -109,18 +111,18 @@ void Roster::printAverageDaysInCourse(string sID)
 	{
 		if (classRosterArray[i]->getStudentID()==sID)
 		{ 
-			cout << sID << ":";
+			cout << sID << ": ";
 			cout << (classRosterArray[i]->getDaysToComplete()[0] + classRosterArray[i]->getDaysToComplete()[1] + classRosterArray[i]->getDaysToComplete()[2]) / 3.0 << endl;
 		}
 	}
 }
 
-void Roster::removeStudentByID(string sID)
+bool Roster::removeStudentByID(string studentID)
 {
 	bool success = false;
 	for (int i = 0; i <= Roster::lastIndex; i++)
 	{
-		if (classRosterArray[i]->getStudentID() == sID)
+		if (classRosterArray[i]->getStudentID() == studentID)
 		{
 			success = true;
 			if (i < rosterMax - 1)
@@ -134,19 +136,30 @@ void Roster::removeStudentByID(string sID)
 	}
 	if (success)
 	{
-		cout << sID << " removed from repository." << endl << endl;
+		cout << endl;
+		cout << endl;
+		cout << studentID << " removed from roster." << endl;
+		cout << endl;
+		cout << endl;
 		this->printAll(); // The removed student(s) should NOT be displayed
+		cout << endl;
+		cout << endl;
 	}
-	else cout << sID << " not found." << endl << endl;
+	else cout << studentID << " not found." << endl;
+	return 0;
 }
+
 
 Roster::~Roster() // Gets rid of objects that are dynamically allocated - i.e. the Students
 {
+	cout << endl;
+	cout << endl;
 	cout << "*Destructor has entered the chat*" << endl << endl; // What you create, you must destroy. Clean up after yourself
 	for (int i = 0; i < rosterMax; i++)
 	{
 		cout << "Destroying Student: " << i + 1 << endl;
-		cout << "RIP" << endl;
+		cout << "~RIP~" << endl;
+		cout << endl;
 		delete classRosterArray[i];
 		classRosterArray[i] = nullptr; // This caps off the hole and removes the address it had before
 	}

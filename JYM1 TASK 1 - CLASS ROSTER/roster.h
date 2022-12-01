@@ -1,7 +1,12 @@
 #pragma once
 #include "student.h"
+#include <stdio.h>
 
-using namespace std;
+// using namespace std;
+
+using std::string;
+using std::cout;
+using std::endl;
 
 class Roster 
 {
@@ -23,8 +28,10 @@ public:
 
 	void printInvalidEmails();
 
-	void printAverageDaysInCourse(string studentID);
+	void printAverageDaysInCourse(string sID);
 
-	bool removeStudentByID(string studentID);
+	bool removeStudentByID(string sID);
+
+	~Roster();
 };
 
