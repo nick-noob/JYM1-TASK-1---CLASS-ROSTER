@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 #include "roster.h"
 #include "student.h"
@@ -112,7 +113,7 @@ void Roster::printAverageDaysInCourse(string sID)
 		if (classRosterArray[i]->getStudentID()==sID)
 		{ 
 			cout << sID << ": ";
-			cout << (classRosterArray[i]->getDaysToComplete()[0] + classRosterArray[i]->getDaysToComplete()[1] + classRosterArray[i]->getDaysToComplete()[2]) / 3.0 << endl;
+			cout << std::setprecision(4) << (classRosterArray[i]->getDaysToComplete()[0] + classRosterArray[i]->getDaysToComplete()[1] + classRosterArray[i]->getDaysToComplete()[2]) / 3.0 << endl;
 		}
 	}
 }
