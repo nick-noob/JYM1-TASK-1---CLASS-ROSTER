@@ -77,16 +77,6 @@ int main() {
 	cout << "_____________________________________________________________________________________________" << endl;
 	cout << endl;
 	
-
-	/*cout << endl;
-	cout << "CLASS ROSTER WITHOUT A3:" << endl;
-	cout << endl;
-	cout << "Removing Student with ID A3" << endl;
-	cout << endl;
-	if (classRoster.removeStudentByID("A3")) cout << "Student with ID of A3 removed" << endl;
-	else cout << "Student A3 not found" << endl;*/
-
-	// system("Pause"); // This holds the window and allows us to see the Destructor announcement when it's run
 	return 0;
 };
 
